@@ -9,5 +9,8 @@
         <module name="jav_2d" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jav_2d" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
