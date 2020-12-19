@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CubePanel extends JPanel {
-    Geometry geometry;
-    GeometryRender render;
+    public Geometry geometry;
+    public GeometryRender render;
 
     public CubePanel() {
         geometry = new Cube();
