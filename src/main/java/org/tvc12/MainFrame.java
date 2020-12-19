@@ -10,7 +10,7 @@ public class MainFrame {
     private JSlider slider3;
     private JPanel dropArea;
     private JButton resetButton;
-    private Shape3DPanel viewPanel;
+    private CubePanel viewPanel;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Main Application");
