@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CubePanel extends JPanel {
-    public Geometry geometry;
+    private Geometry geometry;
     public GeometryRender render;
 
     public CubePanel() {
@@ -30,6 +30,10 @@ public class CubePanel extends JPanel {
         }
         render
             .withGraphic(g)
-            .render(geometry);
+            .render(getGeometry());
+    }
+
+    public Geometry getGeometry() {
+        return geometry;
     }
 }
