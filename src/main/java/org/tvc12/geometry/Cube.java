@@ -4,14 +4,23 @@ import org.tvc12.point.Point3D;
 
 import java.awt.*;
 
+import static java.lang.Math.*;
+
 public class Cube implements Geometry {
-    private final Point3D[] nodes;
-    private final Point[] edges;
+    private Point3D[] nodes;
+    private Point[] edges;
+    private double angleY;
+    private double angleX;
+    private final int size;
 
     public Cube(int size) {
+        this.size = size;
+        initDefault(size);
+    }
+
+    private void initDefault(int size) {
         nodes = getDefaultNode(size);
         edges = getDefaultEdges();
-//        initialCube(x, y, size, distance);
     }
 
     private Point[] getDefaultEdges() {
@@ -23,7 +32,7 @@ public class Cube implements Geometry {
 
     private Point3D[] getDefaultNode(int size) {
         return new Point3D[]{
-                new Point3D(-size, -size, -size), new Point3D(-size, -size, size), new Point3D(-size, size, -size), new Point3D(size, size, size),
+                new Point3D(-size, -size, -size), new Point3D(-size, -size, size), new Point3D(-size, size, -size), new Point3D(-size, size, size),
                 new Point3D(size, -size, -size), new Point3D(size, -size, size), new Point3D(size, size, -size), new Point3D(size, size, size)
         };
     }
@@ -39,16 +48,47 @@ public class Cube implements Geometry {
     }
 
     @Override
-    public void rotateX(double x) {
+    public void rotateX(double angleX) {
+        initDefault(size);
+        this.angleX = angleX;
+        rotateCube(this.angleX, angleY);
     }
 
     @Override
-    public void rotateY(double y) {
+    public void rotateY(double angleY) {
+        initDefault(size);
+        this.angleY = angleY;
+        rotateCube(angleX, this.angleY);
     }
 
     @Override
-    public void rotateZ(double z) {
+    public void rotateZ(double angleZ) {
+        this.angleY = angleZ;
+        this.angleX = angleZ;
+        initDefault(size);
+        rotateCube(angleX, this.angleY);
     }
 
 
+    private void rotateCube(double angleX, double angleY) {
+        double sinX = sin(angleX);
+        double cosX = cos(angleY);
+
+        double sinY = sin(angleY);
+        double cosY = cos(angleY);
+
+        for (Point3D node : nodes) {
+            double x = node.getX();
+            double y = node.getY();
+            double z = node.getZ();
+
+            node.setX(x * cosX - z * sinX);
+            node.setZ(z * cosX + x * sinX);
+
+            z = node.getZ();
+
+            node.setY(y * cosY - z * sinY);
+            node.setZ(z * cosY + y * sinY);
+        }
+    }
 }

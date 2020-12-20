@@ -6,6 +6,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static java.lang.Math.PI;
+
 public class MainFrame {
 
     private JPanel mainPanel;
@@ -20,24 +22,23 @@ public class MainFrame {
         sliderX.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
-                System.out.println("sliderX:: "+ sliderX.getValue());
-                viewPanel.getGeometry().rotateX(sliderX.getValue());
+                viewPanel.getGeometry().rotateX(sliderX.getValue() / 180.0);
+                viewPanel.repaint();
             }
         });
         sliderY.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
-                System.out.println("sliderX:: "+ sliderY.getValue());
+                viewPanel.getGeometry().rotateY(sliderY.getValue() / 180.0);
+                viewPanel.repaint();
 
-                viewPanel.getGeometry().rotateY(sliderY.getValue());
             }
         });
         sliderZ.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
-                System.out.println("sliderX:: "+ sliderZ.getValue());
-
-                viewPanel.getGeometry().rotateZ(sliderZ.getValue());
+                viewPanel.getGeometry().rotateZ(sliderZ.getValue() / 180.0);
+                viewPanel.repaint();
             }
         });
         resetButton.addMouseListener(new MouseAdapter() {

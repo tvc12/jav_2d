@@ -27,7 +27,8 @@
             </constraints>
             <properties>
               <majorTickSpacing value="5"/>
-              <minimum value="-100"/>
+              <maximum value="180"/>
+              <minimum value="-180"/>
               <value value="0"/>
             </properties>
           </component>
@@ -47,7 +48,8 @@
             </constraints>
             <properties>
               <majorTickSpacing value="5"/>
-              <minimum value="-100"/>
+              <maximum value="180"/>
+              <minimum value="-180"/>
               <value value="0"/>
             </properties>
           </component>
@@ -57,7 +59,8 @@
             </constraints>
             <properties>
               <majorTickSpacing value="5"/>
-              <minimum value="-100"/>
+              <maximum value="180"/>
+              <minimum value="-180"/>
               <value value="0"/>
             </properties>
           </component>

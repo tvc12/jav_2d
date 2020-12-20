@@ -19,6 +19,10 @@ public class Point3D {
         this.x = x;
     }
 
+    public void setX(double x) {
+        this.x = (int) x;
+    }
+
     public int getY() {
         return y;
     }
@@ -27,11 +31,19 @@ public class Point3D {
         this.y = y;
     }
 
+    public void setY(double y) {
+        this.y = (int) y;
+    }
+
     public int getZ() {
         return z;
     }
 
     public void setZ(int z) {
         this.z = z;
+    }
+
+    public void setZ(double z) {
+        this.z = (int) z;
     }
 }

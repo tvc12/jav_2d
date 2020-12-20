@@ -8,6 +8,8 @@ import org.tvc12.renderable.GeometryRenders;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.lang.Math.*;
+
 public class CubePanel extends JPanel {
     private final Cube geometry;
 
@@ -18,7 +20,7 @@ public class CubePanel extends JPanel {
     private CuberRender cuberRender;
 
     public CubePanel() {
-        geometry = new Cube(200);
+        geometry = new Cube(50);
         cuberRender = GeometryRenders.cuberRender();
     }
 

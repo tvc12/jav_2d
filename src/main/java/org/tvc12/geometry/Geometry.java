@@ -9,9 +9,9 @@ public interface Geometry {
 
     Point3D[] getNodes();
 
-    void rotateX(double x);
+    void rotateX(double angleX);
 
-    void rotateY(double y);
+    void rotateY(double angleY);
 
-    void rotateZ(double z);
+    void rotateZ(double angleZ);
 }
