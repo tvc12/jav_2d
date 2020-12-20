@@ -5,9 +5,9 @@ import java.awt.*;
 public interface Geometry {
     Point[] getPoints();
 
-    Geometry routeX(double x);
+    void routeX(double x);
 
-    Geometry routeY(double y);
+    void routeY(double y);
 
-    Geometry routeZ(double z);
+    void routeZ(double z);
 }
