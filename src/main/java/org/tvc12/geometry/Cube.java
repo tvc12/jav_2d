@@ -1,69 +1,53 @@
 package org.tvc12.geometry;
 
+import org.tvc12.point.Point3D;
+
 import java.awt.*;
 
 public class Cube implements Geometry {
-    private final int x;
-    private final int y;
-    private final int size;
-    private final int distance;
-    private final Point[] points;
+    private final Point3D[] nodes;
+    private final Point[] edges;
 
-    public Cube(int x, int y, int size, int distance) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.distance = distance;
-        points = new Point[8];
-
-        initialCube(x, y, size, distance);
+    public Cube(int size) {
+        nodes = getDefaultNode(size);
+        edges = getDefaultEdges();
+//        initialCube(x, y, size, distance);
     }
 
-    private void initialCube(int x, int y, int size, int distance) {
-        points[0] = new Point(x, y);
-        points[1] = new Point(x + size, y);
-        points[2] = new Point(x + size, y + size);
-        points[3] = new Point(x, y + size);
+    private Point[] getDefaultEdges() {
+        return new Point[]{
+                new Point(0, 1), new Point(1, 3), new Point(3, 2), new Point(2, 0), new Point(4, 5), new Point(5, 7),
+                new Point(7, 6), new Point(6, 4), new Point(0, 4), new Point(1, 5), new Point(2, 6), new Point(3, 7)
+        };
+    }
 
-        int newX = x + distance;
-        int newY = y + distance;
-        points[4] = new Point(newX, newY);
-        points[5] = new Point(newX + size, newY);
-        points[6] = new Point(newX + size, newY + size);
-        points[7] = new Point(newX, newY + size);
+    private Point3D[] getDefaultNode(int size) {
+        return new Point3D[]{
+                new Point3D(-size, -size, -size), new Point3D(-size, -size, size), new Point3D(-size, size, -size), new Point3D(size, size, size),
+                new Point3D(size, -size, -size), new Point3D(size, -size, size), new Point3D(size, size, -size), new Point3D(size, size, size)
+        };
     }
 
     @Override
-    public Point[] getPoints() {
-        return points;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public int getDistance() {
-        return distance;
+    public Point[] getEdges() {
+        return edges;
     }
 
     @Override
-    public void routeX(double x) {
+    public Point3D[] getNodes() {
+        return nodes;
     }
 
     @Override
-    public void routeY(double y) {
+    public void rotateX(double x) {
     }
 
     @Override
-    public void routeZ(double z) {
+    public void rotateY(double y) {
+    }
+
+    @Override
+    public void rotateZ(double z) {
     }
 
 

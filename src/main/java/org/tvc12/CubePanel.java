@@ -18,7 +18,7 @@ public class CubePanel extends JPanel {
     private CuberRender cuberRender;
 
     public CubePanel() {
-        geometry = new Cube(0, 0, 200, 50);
+        geometry = new Cube(200);
         cuberRender = GeometryRenders.cuberRender();
     }
 
@@ -33,7 +33,7 @@ public class CubePanel extends JPanel {
 
     private void setupGraphics(Graphics g) {
         // Move center
-        g.translate((getWidth() / 2)   - geometry.getSize() / 2, (getHeight() / 2) - geometry.getSize() / 2);
+        g.translate(getWidth() / 2, getHeight() / 2);
         if (g instanceof Graphics2D) {
             // Render smoothing
             ((Graphics2D) g).setRenderingHint(

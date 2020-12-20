@@ -21,7 +21,7 @@ public class MainFrame {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
                 System.out.println("sliderX:: "+ sliderX.getValue());
-                viewPanel.getGeometry().routeX(sliderX.getValue());
+                viewPanel.getGeometry().rotateX(sliderX.getValue());
             }
         });
         sliderY.addChangeListener(new ChangeListener() {
@@ -29,7 +29,7 @@ public class MainFrame {
             public void stateChanged(ChangeEvent changeEvent) {
                 System.out.println("sliderX:: "+ sliderY.getValue());
 
-                viewPanel.getGeometry().routeY(sliderY.getValue());
+                viewPanel.getGeometry().rotateY(sliderY.getValue());
             }
         });
         sliderZ.addChangeListener(new ChangeListener() {
@@ -37,7 +37,7 @@ public class MainFrame {
             public void stateChanged(ChangeEvent changeEvent) {
                 System.out.println("sliderX:: "+ sliderZ.getValue());
 
-                viewPanel.getGeometry().routeZ(sliderZ.getValue());
+                viewPanel.getGeometry().rotateZ(sliderZ.getValue());
             }
         });
         resetButton.addMouseListener(new MouseAdapter() {

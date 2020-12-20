@@ -1,13 +1,17 @@
 package org.tvc12.geometry;
 
+import org.tvc12.point.Point3D;
+
 import java.awt.*;
 
 public interface Geometry {
-    Point[] getPoints();
+    Point[] getEdges();
 
-    void routeX(double x);
+    Point3D[] getNodes();
 
-    void routeY(double y);
+    void rotateX(double x);
 
-    void routeZ(double z);
+    void rotateY(double y);
+
+    void rotateZ(double z);
 }

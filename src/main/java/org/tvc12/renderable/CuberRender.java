@@ -1,6 +1,7 @@
 package org.tvc12.renderable;
 
 import org.tvc12.geometry.Cube;
+import org.tvc12.point.Point3D;
 
 import java.awt.*;
 
@@ -14,17 +15,16 @@ public class CuberRender implements GeometryRender<Cube> {
 
     @Override
     public void render(Cube geometry) {
-        int x = geometry.getX();
-        int y = geometry.getY();
-        int size = geometry.getSize();
-        int distance = geometry.getDistance();
-        graphics.drawRect(x, y, size, size);
-        graphics.drawRect(x + distance, y + distance, size, size);
+        Point[] edges = geometry.getEdges();
+        Point3D[] nodes = geometry.getNodes();
 
-        Point[] points = geometry.getPoints();
-        for (int index = 0; index < 4; ++index) {
-            graphics.drawLine(points[index].x, points[index].y,
-                    points[index + 4].x, points[index + 4].y);
+        for (Point edge : edges) {
+            Point3D node1 = nodes[edge.x];
+            Point3D node2 = nodes[edge.y];
+            graphics.drawLine(
+                    node1.getX(), node1.getY(),
+                    node2.getX(), node2.getY()
+            );
         }
     }
 }
