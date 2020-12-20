@@ -1,6 +1,8 @@
 ### jav_2d 🤪
 Project with Java 2D graphic
 
+![Demo](./assets/demo.gif)
+
 ### Getting started 👍
 
 ⚠ **Require** java 11
