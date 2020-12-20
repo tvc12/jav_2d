@@ -1,4 +1,12 @@
-org/tvc12/App.class
-org/tvc12/PrimaryController.class
-module-info.class
-org/tvc12/SecondaryController.class
+org/tvc12/MainFrame$3.class
+org/tvc12/renderable/CuberRender.class
+org/tvc12/geometry/Geometry.class
+org/tvc12/MainFrame.class
+org/tvc12/MainFrame$1.class
+org/tvc12/point/Point3D.class
+org/tvc12/geometry/Cube.class
+org/tvc12/MainFrame$2.class
+org/tvc12/renderable/GeometryRender.class
+org/tvc12/CubePanel.class
+org/tvc12/renderable/GeometryRenders.class
+org/tvc12/MainFrame$4.class
