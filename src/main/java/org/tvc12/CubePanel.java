@@ -1,6 +1,7 @@
 package org.tvc12;
 
 import org.tvc12.geometry.Cube;
+import org.tvc12.geometry.Geometry;
 import org.tvc12.renderable.CuberRender;
 import org.tvc12.renderable.GeometryRenders;
 
@@ -10,22 +11,29 @@ import java.awt.*;
 public class CubePanel extends JPanel {
     private final Cube geometry;
 
-    public Cube getGeometry() {
+    public Geometry getGeometry() {
         return geometry;
     }
 
     private CuberRender cuberRender;
 
     public CubePanel() {
-        geometry = new Cube(0, 0, 50);
+        geometry = new Cube(0, 0, 200, 50);
         cuberRender = GeometryRenders.cuberRender();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.translate(getWidth() / 2, getHeight() / 2);
+        setupGraphics(g);
+        cuberRender
+                .withGraphic(g)
+                .render(geometry);
+    }
 
+    private void setupGraphics(Graphics g) {
+        // Move center
+        g.translate((getWidth() / 2)   - geometry.getSize() / 2, (getHeight() / 2) - geometry.getSize() / 2);
         if (g instanceof Graphics2D) {
             // Render smoothing
             ((Graphics2D) g).setRenderingHint(
@@ -33,9 +41,6 @@ public class CubePanel extends JPanel {
                     RenderingHints.VALUE_ANTIALIAS_ON
             );
         }
-        cuberRender
-                .withGraphic(g)
-                .render(geometry);
     }
 
 }
